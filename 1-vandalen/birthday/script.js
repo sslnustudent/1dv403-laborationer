@@ -8,7 +8,15 @@ window.onload = function(){
 
 
 			// Din kod här.
-
+	
+    var nowDate = new Date();
+    var birthDate = new Date(date);
+    var daysLeft = Math.round((birthDate.getTime() - nowDate.getTime())/(1000*(60*(60*24))));
+    
+    if (nowDate.getHours() > 12)
+    {daysLeft += 1;}
+    
+    return daysLeft;
 
 
 
