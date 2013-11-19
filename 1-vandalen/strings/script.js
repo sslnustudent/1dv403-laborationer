@@ -7,7 +7,26 @@ window.onload = function(){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+	var nstr = "";
+    var i=0;
+    var character="";
+    if(str === ""){
+        throw new Error("Du angav inget");
+    }
+    while (i <= str.length){
+        character = str.charAt(i);
+        if (character.toUpperCase() == "A"){
+            nstr += "#";
+        }
+        else if (character == character.toUpperCase()){
+            nstr += character.toLowerCase();
+        }
+        else if (character == character.toLowerCase()){
+            nstr += character.toUpperCase();
+        }
+    i++;
+    }
+    return nstr;
 
 
 
