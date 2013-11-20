@@ -8,13 +8,20 @@ window.onload = function(){
 
 
 			// Din kod här.
-	
+
     var nowDate = new Date();
     var birthDate = new Date(date);
+
     var daysLeft = Math.round((birthDate.getTime() - nowDate.getTime())/(1000*(60*(60*24))));
     
     if (nowDate.getHours() > 12)
     {daysLeft += 1;}
+    if (birthDate.getDate() < nowDate.getDate()){
+       daysLeft += 365;
+    }
+
+    if(isNaN(daysLeft))
+	{throw new Error("Angiv ett datum!!");}
     
     return daysLeft;
 

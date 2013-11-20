@@ -11,7 +11,8 @@ window.onload = function(){
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 			
 		// Plats för förändring.
-		
+		if(isNaN(number))
+		{return[false, "Ange ett tall!!!"];}
 		count += 1;
 		if(number > 100 || number <= 0){
 		    return [false, "Talet är utanför intervallet 0 - 100"];
