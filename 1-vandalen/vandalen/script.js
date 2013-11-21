@@ -12,7 +12,6 @@ var makePerson = function(persArr){
 	// Din kod här...
 	while (i < persArr.length) {
 	    ages[i] = persArr[i].age;
-	    //ages.push(persArr[i.age]);
 	    i++;
 	}
 	
@@ -31,15 +30,8 @@ var makePerson = function(persArr){
 	    namesarr[i] = persArr[i].name;
 	    i++;
 	}
-	namesarr.sort();
-	/*
-	if(namesarr[0] == "Ä")
-	{
-	    namesarr[0] = "Å";
-	    namesarr[1] = "Ä";
-	    namesarr[2] = "Ö";
-	}
-	*/
+	namesarr.sort(function(a,b){return a.localeCompare(b)});
+
 	i = 0;
 	while (i < namesarr.length) {
 	    names1 += namesarr[i];
@@ -60,3 +52,11 @@ var data = [{name: "John Häggerud", age: 37}, {name: "Johan Leitet", age: 36}, 
 var result = makePerson(data);
 
 console.log(result);
+	/*
+	if(namesarr[0] == "Ä")
+	{
+	    namesarr[0] = "Å";
+	    namesarr[1] = "Ä";
+	    namesarr[2] = "Ö";
+	}
+	*/
