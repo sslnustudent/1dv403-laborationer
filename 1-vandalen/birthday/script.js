@@ -11,15 +11,34 @@ window.onload = function(){
 
     var nowDate = new Date();
     var birthDate = new Date(date);
-
+    var yearnow = 0;
+    var yearbirth = 0;
+    birthDate.setYear(nowDate.getFullYear());
     var daysLeft = Math.round((birthDate.getTime() - nowDate.getTime())/(1000*(60*(60*24))));
     
     if (nowDate.getHours() > 12)
-    {daysLeft += 1;}
-    if (birthDate.getDate() < nowDate.getDate()){
+     {daysLeft += 1;}
+    
+    /*if (birthDate.getDate() < nowDate.getDate()){
        daysLeft += 365;
-    }
+    }*/
 
+   // yearnow = Math.round((nowDate.getTime())/(1000*(60*(60*(24*365)))));
+//    yearbirth = Math.round((nowDate.getTime())/(1000*(60*(60*(24*365)))));
+
+    //yearnow = nowDate.getFullYear();
+    //yearbirth = birthDate.getFullYear();
+    console.log(yearbirth);
+    console.log(yearnow);
+    /*while (yearbirth < yearnow) {
+        console.log("Succes");
+        daysLeft += 365;
+        yearbirth += 1;
+        
+    }*/
+    if(birthDate.getDate() < nowDate.getDate()){
+    daysLeft += 365;
+}
     if(isNaN(daysLeft))
 	{throw new Error("Angiv ett datum!!");}
     

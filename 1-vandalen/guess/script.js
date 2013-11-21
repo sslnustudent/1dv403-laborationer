@@ -13,10 +13,11 @@ window.onload = function(){
 		// Plats för förändring.
 		if(isNaN(number))
 		{return[false, "Ange ett tall!!!"];}
-		count += 1;
+		
 		if(number > 100 || number <= 0){
 		    return [false, "Talet är utanför intervallet 0 - 100"];
 		}
+		count += 1;
         if(number == secret){
             
             return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + count + " gissningar för att hitta det."];
