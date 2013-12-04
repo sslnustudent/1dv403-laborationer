@@ -1,3 +1,29 @@
+#container
+{
+    max-width: 1000px;
+    border-style: solid;
+    margin-left:auto;
+    margin-right:auto;
+}
+#content
+{
+    max-width: 800px;
+    border-style: solid;
+    margin-left:auto;
+    margin-right:auto;
+}
+#text
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+.textclass
+ {
+    margin-left:auto;
+    margin-right:auto;
+    border-style: solid;
+ }
+ 
 .imgc
 {
     width: 20px;
@@ -5,5 +31,8 @@
 }
 h1
 {
-   font-size:40px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:300px;
+    font-size:40px;
 }

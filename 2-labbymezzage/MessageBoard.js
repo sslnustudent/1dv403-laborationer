@@ -5,31 +5,47 @@ var MessageBoard = {
     messages: [],
     
     removeMessage:function(messageID){
+        
+        var r = confirm("Är du säker?");
+        if(r === true){
         MessageBoard.messages.splice(messageID, 1);
         MessageBoard.renderMessages();
+        }
+        else
+        {}
     },
     
     renderMessage:function(messageID){
 
         var div = document.createElement("div");
+        div.className = "textclass";
         // Texten
         var text =document.createElement("p");
         text.innerHTML = MessageBoard.messages[messageID].getHTMLText();
         // Datumet
         var date = document.createElement("p");
-        date.innerHTML = MessageBoard.messages[messageID].getDate();
-        
-        
+        date.innerHTML = MessageBoard.messages[messageID].getTime();
+        //Raderaknappen
         var removeButton = document.createElement("a");
         var removeImg = document.createElement("img");
-        removeImg.setAttribute('src', 'DeleteRed.png')
+        removeImg.setAttribute('src', 'DeleteRed.png');
         removeImg.className = "imgc";
-        // Lägger till dem i HTML
         removeButton.appendChild(removeImg);
         removeButton.onclick = function(){ 
             MessageBoard.removeMessage(messageID);
-        }
+        };
+        //Tidsknappen
+        var timeButton = document.createElement("a");
+        var timeImg = document.createElement("img");
+        timeImg.setAttribute('src', 'time.png');
+        timeImg.className ="imgc";
+        timeButton.appendChild(timeImg);
+        timeButton.onclick = function(){
+            alert("Inlägget skapades "+ MessageBoard.messages[messageID].getDate());
+        };
+        // Lägger till dem i HTML
         div.appendChild(removeButton);
+        div.appendChild(timeButton);
         div.appendChild(text);
         div.appendChild(date);
         document.getElementById("written").appendChild(div);

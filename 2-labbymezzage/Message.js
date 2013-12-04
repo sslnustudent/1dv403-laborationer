@@ -17,6 +17,23 @@ function Message(message, date){
     this.setDate = function(_date){
         date = _date;
     }
+    this.getTime = function()
+    {
+        var h=date.getHours();
+        var m=date.getMinutes();
+        var s=date.getSeconds();
+
+        if (h < 10) {
+            h = "0" +h;
+        }
+        if (m < 10) {
+            m = "0" +m;
+        }
+        if (s < 10) {
+            s = "0" +s;
+        }
+        return h+ ":"+ m+ ":"+ s;
+    }
 }
 
 Message.prototype.toString = function(){
