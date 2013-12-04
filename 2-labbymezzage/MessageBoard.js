@@ -4,6 +4,11 @@ var MessageBoard = {
     
     messages: [],
     
+    removeMessage:function(messageID){
+        MessageBoard.messages.splice(messageID, 1);
+        MessageBoard.renderMessages();
+    },
+    
     renderMessage:function(messageID){
 
         var div = document.createElement("div");
@@ -13,7 +18,18 @@ var MessageBoard = {
         // Datumet
         var date = document.createElement("p");
         date.innerHTML = MessageBoard.messages[messageID].getDate();
+        
+        
+        var removeButton = document.createElement("a");
+        var removeImg = document.createElement("img");
+        removeImg.setAttribute('src', 'DeleteRed.png')
+        removeImg.className = "imgc";
         // Lägger till dem i HTML
+        removeButton.appendChild(removeImg);
+        removeButton.onclick = function(){ 
+            MessageBoard.removeMessage(messageID);
+        }
+        div.appendChild(removeButton);
         div.appendChild(text);
         div.appendChild(date);
         document.getElementById("written").appendChild(div);
