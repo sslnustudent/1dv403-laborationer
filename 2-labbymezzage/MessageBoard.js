@@ -4,6 +4,12 @@ var MessageBoard = {
     
     messages: [],
     
+    numberOfMessages:function(){
+        var nom = document.getElementById("nom");
+        var t=document.createTextNode("Antal medelande "+ MessageBoard.messages.length());
+        nom.appendChild(t);
+    },
+    
     removeMessage:function(messageID){
         
         var r = confirm("Är du säker?");
@@ -22,8 +28,10 @@ var MessageBoard = {
         // Texten
         var text =document.createElement("p");
         text.innerHTML = MessageBoard.messages[messageID].getHTMLText();
+        text.className = "tclass";
         // Datumet
         var date = document.createElement("p");
+        date.className = "timeclass";
         date.innerHTML = MessageBoard.messages[messageID].getTime();
         //Raderaknappen
         var removeButton = document.createElement("a");
@@ -34,6 +42,7 @@ var MessageBoard = {
         removeButton.onclick = function(){ 
             MessageBoard.removeMessage(messageID);
         };
+        removeButton.className ="iconclass";
         //Tidsknappen
         var timeButton = document.createElement("a");
         var timeImg = document.createElement("img");
@@ -43,7 +52,9 @@ var MessageBoard = {
         timeButton.onclick = function(){
             alert("Inlägget skapades "+ MessageBoard.messages[messageID].getDate());
         };
+        timeButton.className ="iconclass";
         // Lägger till dem i HTML
+
         div.appendChild(removeButton);
         div.appendChild(timeButton);
         div.appendChild(text);
@@ -57,6 +68,7 @@ var MessageBoard = {
         for(var i=0; i < MessageBoard.messages.length; i++){
             MessageBoard.renderMessage(i);
         }
+        document.getElementById("nom").innerHTML = "Antal Medelande "+ i;
     },
     init:function(){
         
@@ -87,12 +99,26 @@ var MessageBoard = {
         MessageBoard.messages.push(new Message(text.value, new Date())); 
         //alert(MessageBoard.messages[0]);
         MessageBoard.renderMessages();
+        document.getElementById("text").value = "";
+        //MessageBoard.numberOfMessages();
     }
     
 };
-    
-
+   
 var writeButton = document.getElementById("writebutton");
 writeButton.onclick = MessageBoard.init;
+var textbox = document.getElementById("text");
+//textbox.onkeypress = MessageBoard.init;
+textbox.onkeypress = function(e){
+    if(e.keyCode == 13)
+    {
+        if(e.shiftKey == 1){
+        }
+        else{
+        MessageBoard.init();
+        }
+    }
+   // alert(e.keyCode);
+}
 
 //window.onload = MessageBoard.init;

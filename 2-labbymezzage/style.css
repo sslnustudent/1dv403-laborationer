@@ -1,14 +1,13 @@
 #container
 {
     max-width: 1000px;
-    border-style: solid;
     margin-left:auto;
     margin-right:auto;
+    background-color:#DADBE0;
 }
 #content
 {
     max-width: 800px;
-    border-style: solid;
     margin-left:auto;
     margin-right:auto;
 }
@@ -17,13 +16,34 @@
     margin-left:auto;
     margin-right:auto;
 }
+#writebutton
+{
+    clear:left;
+}
 .textclass
  {
     margin-left:auto;
     margin-right:auto;
     border-style: solid;
+    border-width:1px;
+    margin-bottom:5px;
+    background-color:#284C7E;
  }
- 
+.tclass
+{
+    max-width:700px;
+    color:#DADBE0;
+}
+.iconclass
+{
+    float:right;
+}
+ .timeclass
+ {
+     font-size:10px;
+     margin-left:95%;
+     
+ }
 .imgc
 {
     width: 20px;
