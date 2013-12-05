@@ -1,5 +1,5 @@
 "use strict";
-
+//klar
 var MessageBoard = {
     
     messages: [],
