@@ -23,6 +23,7 @@ var Memory = {
         var ai = 'a' + i;
         var src = '';
         var a = document.createElement("a");
+        a.setAttribute("href", "#");
         var img = document.createElement("img");
         src = 'pics/' + Memory.memories[i] + '.png';
         img.setAttribute('src', 'pics/0.png');
