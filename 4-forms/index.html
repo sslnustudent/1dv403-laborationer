@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <title>Validering</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <div id="container">
+        
+        <header id="top">
+            <h1>Fyll i din betalningsplan</h1>
+        </header>
+        
+        <div id="content">
+        <form action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" id="theForm" method="POST">
+            <label id="1">Förnamn</label>
+            <br>
+            <input type="text" name="name" id="rub"> <labe id="nlabel"> </labe>
+            <br>
+            <label id="2">Efternamn</label>
+            <br>
+            <input type="text" name="surname" id="rub"><labe id="snlabel"> </labe>
+            <br>
+            <label id="3">Postnummer</label>
+            <br>
+            <input type="text" name="postnumber" id="rub"><labe id="pnlabel"> </labe>
+            <br>
+            <label id="4">E-post</label>
+            <br>
+            <input type="text" name="email" id="rub"><labe id="eplabel"> </labe>
+            <br>
+            <label id="5">Prismodell</label>
+            <br>
+            <input type="text" name="price" id="rub">
+            <br>
+            <input type="submit" value="Genomför köp">
+            
+        </form>
+        </div>
+        
+    </div>
+    
+
+    <script src="Validator.js"></script>
+</body>
+</html>
