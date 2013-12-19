@@ -4,14 +4,15 @@ var Validator = {
     
     init:function(){
         //alert("LOLOL");
+        var form = document.getElementById("theForm");
         var btn = document.getElementById("btn");
         var btnParent = btn.parentElement;
         btn.remove();
-        btn = document.getElementById("btn");
+       
         Validator.addSubmitBtn(btnParent);
-       // btn.disabled = true;
+        btn = document.getElementById("btn");
+        btn.disabled = true;
         var check = [false,false,false,false];
-        var form = document.getElementById("theForm");
         form.elements["name"].onblur = function(){
             var label = document.getElementById("nlabel");
             var val = /[\w]+/;
@@ -89,24 +90,18 @@ var Validator = {
                 check[3] = false;
                 btn.disabled = true;
             }
-            
-        };
-        form.onsubmit = function(){
-        
+        };  
+        },
+        genereateModal:function(){
+        var form = document.getElementById("theForm");
         var l1 = document.getElementById("1");
         var l2 = document.getElementById("2");
         var l3 = document.getElementById("3");
         var l4 = document.getElementById("4");
         var l5 = document.getElementById("5");
         
-        var promttext =l1.firstChild.nodeValue + ":                 " + form.elements["name"].value + 
-        "<br/>" + l2.firstChild.nodeValue+":                   "+ form.elements["surname"].value+
-        "<br>" + l3.firstChild.nodeValue+":               " + form.elements["postnumber"].value +
-        "<break/>" + l4.firstChild.nodeValue+":                          " + form.elements["email"].value +
-        "<break/>" + l5.firstChild.nodeValue+":                   " + form.elements["price"].value;
-        
         var popup = document.getElementById("popup");
-        popup.className = "popup"
+        popup.className = "popup";
         var p1 = document.createElement("p");
         var text1 = document.createTextNode(l1.firstChild.nodeValue + ":                 " + form.elements["name"].value);
         var p2 = document.createElement("p");
@@ -130,53 +125,47 @@ var Validator = {
         textdiv.appendChild(p5);
         popup.appendChild(textdiv);
         var btndiv = document.createElement("div");
-        var button1 = document.createElement("input");
-        button1.type = "button";
-        button1.value = "Godkän köp";
+        var button1 = document.createElement("button");
+        button1.setAttribute("type", "button");
+        //button1.innerHTML = "Genomför köp";
+        var btnt1 = document.createTextNode("Genomför köpet");
+        button1.appendChild(btnt1);
         button1.onclick = function(){
-            return true;
-        }
-        
-        var button2 = document.createElement("input");
-        button2.type = "button";
-        button2.value = "Avbryt";
-        popup.appendchild(button1);
-        return false;
-    //button.onclick = func;
-       /* function dimOff()
-        {
-            document.getElementById("darkLayer").style.display = "none";
-        }
-        function dimOn()
-        {
-            document.getElementById("darkLayer").style.display = "";
-        }       dimOn();*/
-      /*  var r = confirm(promttext);
-        if(r === true){
-            return true;
-        }
-        else
-        {
-            
-            popup.className = "";
-            popup.removeChild(popup.childNodes[0]);
-            return false;
-        }*/
-            
+            form.submit();
         };
-        /*function popitup(url,windowName) {
-       newwindow=window.open(url,windowName,'height=200,width=150');
-       if (window.focus) {newwindow.focus()}
-       return false; }*/
+        document.getElementById("darkLayer").style.display = "";
+        var button2 = document.createElement("button");
+        button2.setAttribute("type", "button");
+       // button2.innerHTML = "Avbryt";
+        var btnt2 = document.createTextNode("Avbryt!");
+        button2.appendChild(btnt2);
+        button2.onclick = function(){
+            popup.className = "";
+            popup.removeChild(popup.childNodes[1]);
+            popup.removeChild(popup.childNodes[0]);
+            document.getElementById("darkLayer").style.display = "none";
+        };
+        btndiv.appendChild(button1)
+        btndiv.appendChild(button2)
+        popup.appendChild(btndiv);
+        
     },
-    
-      addSubmitBtn : function(node) {
+    addSubmitBtn:function(node) {
       var btn = document.createElement('button');
-      btn.innerHTML = "Genomför köp";
+      btn.setAttribute("type", "button")
+      //btn.innerHTML = "Genomför köp";
+      var btnt = document.createTextNode("Genomför köp");
+      btn.appendChild(btnt)
       btn.setAttribute("id", "btn");
       node.appendChild(btn);
-      btn.addEventListener('click', Validator.genereateModal);
+
+      btn.onclick = function(){
+          Validator.genereateModal();
+      };
       
+
+     // btn.addEventListener('click', Validator.genereateModal());
+     
     }
     
 };
