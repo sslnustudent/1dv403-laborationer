@@ -1,5 +1,5 @@
 "use strict";
-
+//Klar
 var Validator = {
     
     init:function(){
