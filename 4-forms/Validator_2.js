@@ -5,7 +5,11 @@ var Validator = {
     init:function(){
         //alert("LOLOL");
         var btn = document.getElementById("btn");
-        btn.disabled = true;
+        var btnParent = btn.parentElement;
+        btn.remove();
+        btn = document.getElementById("btn");
+        Validator.addSubmitBtn(btnParent);
+       // btn.disabled = true;
         var check = [false,false,false,false];
         var form = document.getElementById("theForm");
         form.elements["name"].onblur = function(){
@@ -164,8 +168,19 @@ var Validator = {
        newwindow=window.open(url,windowName,'height=200,width=150');
        if (window.focus) {newwindow.focus()}
        return false; }*/
+    },
+    
+      addSubmitBtn : function(node) {
+      var btn = document.createElement('button');
+      btn.innerHTML = "Genomför köp";
+      btn.setAttribute("id", "btn");
+      node.appendChild(btn);
+      btn.addEventListener('click', Validator.genereateModal);
+      
     }
+    
 };
-
+Element.prototype.remove = function() {
+     this.parentElement.removeChild(this);};
 
 window.onload = Validator.init;
