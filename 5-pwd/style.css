@@ -6,7 +6,7 @@
 {
     width:1024px;
     height:640px;
-    background-color:blue;
+    background-image:url('wallpaper.jpg');
     margin-left: auto ;
     margin-right: auto ;
 }
@@ -14,12 +14,20 @@
 {
     height:590px;
 }
+#bcon
+{
+        height:50px;
+    width:1024px;
+        border-top:solid;
+}
 #bottom
 {
+    float:left;
+    position:absolute;
     height:50px;
     width:1024px;
     background-color: black;
-    border-top:solid;
+
     -moz-opacity: 0.7;
 	opacity:.70;
 	filter: alpha(opacity=70);
@@ -28,9 +36,103 @@
 {
     width: 45px;
     height: 45px;
-    z-index:1004;
+    z-index:1005;
 }
 #ai
 {
-        z-index:1004;
+    
+    position:absolute;
+    float:left;
+    z-index:1005;
+}
+
+.windowBody
+{
+    position:absolute;
+    background-color: white;
+    height: 512px;
+    width: 400px;
+    z-index:1002;
+    top: 4%;
+    left: 25%;
+    border-style: solid;
+    border-width:1px;
+}
+.windowTop
+{
+    background-color:#C0C0C0;
+    height:39px;
+    border-bottom:solid;
+    border-width:1px;
+}
+.windowContent
+{
+    width:400px;
+    overflow:auto;
+    height:430px;
+    border-bottom:solid;
+    border-width:1px;
+}
+.windowBottom
+{
+    background-color:#C0C0C0;
+    height:29px;
+}
+.iconImg
+{
+    width: 25px;
+    height: 25px; 
+    float:left;
+}
+.iconText
+{
+    font-family:Arial,Helvetica,sans-serif;
+    float:left;
+    font-size:15px;
+    margin-top:5px;
+    margin-bottom:30px;
+}
+.deletebutton
+{
+    width: 20px;
+    height: 20px;
+    float:right;
+}
+.deleteimg
+{
+    width: 20px;
+    height: 20px;
+}
+
+.frames
+{
+  /*  height : 65px;
+    width : 90px; */
+    float:left;
+    margin-left:5px;
+    margin-top:10px;
+    background-color:#FFCC99;
+    border-style:solid;
+    border-width:1px;
+}
+.thumbnail
+{
+    display: block;
+    margin: auto ;
+    margin-top:7.5%;
+}
+.gif
+{
+    float:left;
+    margin-left:10px;
+    margin-top:5px;
+}
+.loadText
+{
+    font-family:Arial,Helvetica,sans-serif;
+    float:left;
+    margin-top:5px;
+    margin-bottom:20px;
+    margin-left:3px;
+    font-size:15px;
 }
