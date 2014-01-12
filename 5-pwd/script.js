@@ -32,8 +32,6 @@ var desktop = {
         }
         
     }
-    width = width + 15;
-    height = height + 15;
     
     
     

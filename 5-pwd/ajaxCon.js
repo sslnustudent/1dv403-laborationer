@@ -1,3 +1,4 @@
+ "use strict";
  function AjaxCon(url, callback){
      
      var xhr = this.getXHR();
