@@ -13,7 +13,6 @@ var desktop = {
     
     click:function(images, imgId){
     var desk = document.getElementById("desktop");
-    //alert(images[imgId].URL);
     desk.style.backgroundImage= "url(" + images[imgId].URL + ")";
     },
     
@@ -33,10 +32,6 @@ var desktop = {
         
     }
     
-    
-    
-    //var imgId = new Numbers();
-    // imgId.num = i;
     var frame = document.createElement("div");
     frame.className = "frames";
     frame.style.height = height + "px";
@@ -49,7 +44,6 @@ var desktop = {
     image.setAttribute("src", desktop.images[i].thumbURL);
     frame.appendChild(image);
     click.appendChild(frame);
-    //alert(desktop.images[i].thumbURL);
     
     windowContent.appendChild(click);
     click.onclick = function(){ desktop.click(desktop.images, i);};
@@ -96,9 +90,6 @@ var desktop = {
             };
             windowTop.appendChild(deletebutton);
             var url = "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/";
-          /*  var mycallback = function(data){
-             windowContent.innerHTML(data);
-            };*/
             var loadIcon = document.createElement("img");
             loadIcon.className = "gif";
             loadIcon.setAttribute("src", "ajax-loader.gif");
